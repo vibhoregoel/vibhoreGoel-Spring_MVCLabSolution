@@ -29,10 +29,7 @@ public class StudentController {
 	@RequestMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
 
-		// get the customer from the service
-
 		Students student = new Students();
-		// set Customer as a model attribute to pre-populate the form
 		theModel.addAttribute("student", student);
 
 		// send over to our form
@@ -42,10 +39,10 @@ public class StudentController {
 	@RequestMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("id") int theId, Model theModel) {
 
-		// get the customer from the service
+		// get the student from the service
 		Students std = studentservice.findById(theId);
 
-		// set Customer as a model attribute to pre-populate the form
+		// set Student as a model attribute to pre-populate the form
 		theModel.addAttribute("student", std);
 
 		// send over to our form
@@ -65,7 +62,7 @@ public class StudentController {
 			std.setCountry(country);
 		} else
 			std = new Students(name, department, country);
-		// save the Customer
+		// save the Student
 		studentservice.save(std);
 
 		// use a redirect to prevent duplicate submissions
@@ -76,7 +73,7 @@ public class StudentController {
 	@RequestMapping("/delete")
 	public String delete(@RequestParam("id") int theId) {
 
-		// delete the customer
+		// delete the student
 		studentservice.deleteById(theId);
 
 		return "redirect:/students/list";
