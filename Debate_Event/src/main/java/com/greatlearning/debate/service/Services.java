@@ -10,7 +10,7 @@ import com.greatlearning.debate.entities.Students;
 public interface Services {
 	public List<Students> findAll();
 
-	// Find customer record by using its id
+	// Find student record by using its id
 	public Students findById(int id);
 
 	// Insert and update method
